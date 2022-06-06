@@ -5,6 +5,18 @@
   grid-gap: 30px;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+@media (max-width: 700px) {
+  .numeros-grid {
+    grid-column: 1;
+  }
+}
+
+>>>>>>> f90cbb13d5afabf231ea1b3e73ba0b0fbfa8224a
+>>>>>>> e58037192c6fece80f9879c84acfab7048f714d4
 .numeros-grid h3 {
   font-family: 'Playfair Display SC';
   font-size: 2rem;
@@ -16,6 +28,10 @@
   font-weight: bold;
   font-size: 1.5rem;
   color: #E54;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e58037192c6fece80f9879c84acfab7048f714d4
 }
 
 @media (max-width: 700px) {
@@ -25,4 +41,9 @@
   .numeros-grid h3 {
     font-size: 1.5rem;
   }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f90cbb13d5afabf231ea1b3e73ba0b0fbfa8224a
+>>>>>>> e58037192c6fece80f9879c84acfab7048f714d4
 }
