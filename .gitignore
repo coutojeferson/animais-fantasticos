@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-.DS_Store
-=======
-.DS.Store
 node_modules
->>>>>>> f90cbb13d5afabf231ea1b3e73ba0b0fbfa8224a
+.DS_Store
