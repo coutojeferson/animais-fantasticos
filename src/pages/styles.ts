@@ -78,6 +78,26 @@ export const styles = StyleSheet.create({
   },
   line: {
     height: 1,
+    marginBottom: 24,
     backgroundColor: '#333333',
+  },
+  viewEmpty: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imgEmpty: {
+    width: 56,
+    height: 56,
+    marginBottom: 24,
+  },
+  firstTextEmpty: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#808080',
+  },
+  secondTextEmpty: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#333333',
   },
 });
