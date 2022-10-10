@@ -17,7 +17,18 @@ import { styles } from './styles';
 export function Home() {
   const [task, setTask] = useState<string[]>([]);
   const [taskDescription, setTaskDescription] = useState('');
+  const [listDoneTask, setlistDoneTask] = useState<string[]>([]);
+  const [doneTask, setDoneTask] = useState('');
 
+  function addDoneTask(doneTask: string) {
+    setlistDoneTask((prevState) => [...prevState, doneTask]);
+  }
+
+  function removeDoneTask(removeDoneTask: string) {
+    setlistDoneTask((prevState) =>
+      prevState.filter((doneTask) => doneTask !== removeDoneTask),
+    );
+  }
   function handleAddTask() {
     if (task.includes(taskDescription)) {
       return Alert.alert(
@@ -31,14 +42,18 @@ export function Home() {
     setTask((prevState) => [...prevState, taskDescription]);
     setTaskDescription('');
   }
-  function handleRemoveTask(taskDescription: string) {
+  function handleRemoveTask(taskDescription: string, removeDoneTask: String) {
     Alert.alert('Remover', `Deseja realmente remover essa tarefa ?`, [
       {
         text: 'Sim',
-        onPress: () =>
+        onPress: () => {
           setTask((prevState) =>
             prevState.filter((task) => task !== taskDescription),
           ),
+            setlistDoneTask((prevState) =>
+              prevState.filter((doneTask) => doneTask !== removeDoneTask),
+            );
+        },
       },
       {
         text: 'Não',
@@ -74,14 +89,19 @@ export function Home() {
           </View>
           <View style={styles.viewDone}>
             <Text style={styles.done}>Concluídas</Text>
-            <Counter quantity={0} />
+            <Counter quantity={listDoneTask.length} />
           </View>
         </View>
         <FlatList
           data={task}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
-            <Task text={item} onRemove={() => handleRemoveTask(item)} />
+            <Task
+              text={item}
+              onRemove={() => handleRemoveTask(item, item)}
+              onAddDoneTask={() => addDoneTask(item)}
+              onRemoveDoneTask={() => removeDoneTask(item)}
+            />
           )}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (

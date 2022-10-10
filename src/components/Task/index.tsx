@@ -7,12 +7,25 @@ import { styles } from './styles';
 type Props = {
   text: string;
   onRemove: () => void;
+  onAddDoneTask: () => void;
+  onRemoveDoneTask: () => void;
 };
 
-export function Task({ text, onRemove }: Props) {
+export function Task({
+  text,
+  onRemove,
+  onAddDoneTask,
+  onRemoveDoneTask,
+}: Props) {
   const [doneTask, setDoneTask] = useState(false);
   function handleCheckTask() {
-    setDoneTask(!doneTask);
+    if (!doneTask) {
+      setDoneTask(!doneTask);
+      onAddDoneTask();
+    } else {
+      setDoneTask(!doneTask);
+      onRemoveDoneTask();
+    }
   }
   return (
     <View style={styles.container}>
